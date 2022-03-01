@@ -1,0 +1,15 @@
+[Unit]
+Description=Dos Attack Request Listener
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=3
+WorkingDirectory=/home/user
+ExecStart=/usr/bin/python3 -u /home/user/listener.py
+StandardOutput=file:/home/user/listener.log
+StandardError=file:/home/user/listener_error.log
+
+[Install]
+WantedBy=multi-user.target
